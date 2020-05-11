@@ -22,7 +22,7 @@ public class FollowingCamera : MonoBehaviour
     {
         if(Input.GetMouseButton(0))
         {
-            UpdateAngle(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
+            //UpdateAngle(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
         }
 
         UpdateDistance(Input.GetAxis("Mouse ScrollWheel"));
