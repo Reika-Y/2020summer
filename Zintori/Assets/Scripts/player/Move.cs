@@ -8,7 +8,7 @@ public class Move : MonoBehaviour
 
     // 移動速度
     [SerializeField]
-    private float speed = 10.0f;
+    private float speed = 10.0f;   
 
     void Update()
     {
@@ -16,6 +16,13 @@ public class Move : MonoBehaviour
 
         pos.x -= joystick.Position.x * speed * Time.deltaTime;
         pos.z -= joystick.Position.y * speed * Time.deltaTime;
+
+        // ベクトル
+        var vec = pos - transform.position;
+        if(vec.magnitude > 0.01f)
+        {
+            transform.rotation = Quaternion.LookRotation(-vec);
+        }
 
         transform.position = pos;
     }

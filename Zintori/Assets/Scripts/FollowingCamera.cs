@@ -2,6 +2,7 @@
 
 public class FollowingCamera : MonoBehaviour
 {
+
     // 追尾するターゲット
     [SerializeField] private GameObject target;
     [SerializeField] private Vector3 offset;
@@ -20,9 +21,13 @@ public class FollowingCamera : MonoBehaviour
 
     private void LateUpdate()
     {
+        if (Input.GetMouseButton(0))
+        {
+            UpdateAngle(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
+        }
         UpdateDistance(Input.GetAxis("Mouse ScrollWheel"));
 
-        var lookAtPos = target.transform.position + offset;
+        var lookAtPos = target.transform.position/* + offset*/;
         UpdatePosition(lookAtPos);
         transform.LookAt(lookAtPos);
     }
@@ -37,6 +42,7 @@ public class FollowingCamera : MonoBehaviour
         polarAngle = Mathf.Clamp(y, minPolarAngle, maxPolarAngle);
     }
 
+    // ズーム処理
     void UpdateDistance(float scroll)
     {
         scroll = distance - scroll * scrollSensitivity;
