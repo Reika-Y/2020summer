@@ -21,15 +21,9 @@ public class FollowingCamera : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (Input.GetMouseButton(0))
-        {
-            UpdateAngle(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
-        }
         UpdateDistance(Input.GetAxis("Mouse ScrollWheel"));
-
-        var lookAtPos = target.transform.position/* + offset*/;
-        UpdatePosition(lookAtPos);
-        transform.LookAt(lookAtPos);
+        UpdatePosition(target.transform.position + offset);
+        transform.LookAt(target.transform.position);
     }
 
     // 角度の更新
@@ -56,6 +50,6 @@ public class FollowingCamera : MonoBehaviour
         transform.position = new Vector3(
             lookAtPos.x + distance * Mathf.Sin(dp) * Mathf.Cos(da),
             lookAtPos.y + distance * Mathf.Cos(dp),
-            lookAtPos.z + distance * Mathf.Sin(dp) * Mathf.Cos(da));
+            lookAtPos.z + distance * Mathf.Sin(dp) * Mathf.Sin(da));
     }
 }
