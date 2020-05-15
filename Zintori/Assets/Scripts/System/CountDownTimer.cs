@@ -2,27 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CountDownTimer : MonoBehaviour
+public class CountDownTimer 
 {
     // トータル時間
     private float totalTime;
     public float TotalTime { get { return totalTime; } }
 
     // 制限時間
-    [SerializeField]
     private int minute = 0;
-    public int Minute { get { return minute; } }
-    [SerializeField]
-    private float seconds = 0f;
-    public float Seconds { get { return seconds; } }
-
-    private void Start()
+    public int Minute
     {
+        get => minute;
+    }
+
+    private float seconds = 0f;
+    public float Seconds
+    {
+        get => seconds;
+    }
+
+    public CountDownTimer(int min,float sec)
+    {
+        minute = min;
+        seconds = sec;
         totalTime = minute * 60 + seconds;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Update()
     {
         if(totalTime <= 0f)
         {

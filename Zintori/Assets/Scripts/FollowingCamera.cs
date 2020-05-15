@@ -4,8 +4,8 @@ public class FollowingCamera : MonoBehaviour
 {
 
     // 追尾するターゲット
-    [SerializeField] private GameObject target;
-    [SerializeField] private Vector3 offset;
+    [SerializeField] private GameObject target = null;
+    [SerializeField] private Vector3 offset = Vector3.zero;
 
     [SerializeField] private float distance = 4.0f;
     [SerializeField] private float polarAngle = 45.0f;
