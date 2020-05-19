@@ -2,7 +2,6 @@
 
 public class FollowingCamera : MonoBehaviour
 {
-
     // 追尾するターゲット
     [SerializeField] private GameObject target = null;
     [SerializeField] private Vector3 offset = Vector3.zero;
