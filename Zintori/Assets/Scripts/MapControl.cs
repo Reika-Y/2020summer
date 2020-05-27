@@ -5,14 +5,43 @@ using UnityEngine.Tilemaps;
 
 public class MapControl : SingletonMonoBehaviour<MapControl>
 {
+
     [SerializeField]
     private Tilemap map = null;
+
+    enum ChipState
+    {
+        Non,            // なし
+        Temporary,      // アイテム設置中
+        Done            // 完了
+    }
+
+    // マップ情報の構造体
+    struct MapData
+    {
+        public int playerId;
+        public ChipState chipState;
+    }
+
+    List<MapData> mapDataList;
 
     private void Awake()
     {
         base.Awake();
-        OutputPosition(map);
-        OutputSpriteType(map);
+
+        mapDataList = new List<MapData>();
+        var bound = map.cellBounds;
+        for (int y = bound.yMax - 1; y >= bound.yMin; y--)
+        {
+            for (int x = bound.xMin; x < bound.xMax; x++)
+            {
+                MapData data;
+                data.chipState = ChipState.Non;
+                data.playerId = 0;
+                mapDataList.Add(data);
+            }
+        }
+        Debug.Log(mapDataList.Count);
     }
 
     // タイルがどこに存在するか

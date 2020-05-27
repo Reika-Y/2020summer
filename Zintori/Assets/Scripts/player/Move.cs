@@ -8,7 +8,7 @@ public class Move : MonoBehaviour
 
     // 移動速度
     [SerializeField]
-    private float speed = 10.0f;   
+    private float speed = 10.0f;
 
     void Update()
     {
@@ -19,7 +19,7 @@ public class Move : MonoBehaviour
 
         // ベクトル
         var vec = pos - transform.position;
-        if(vec.magnitude > 0.01f)
+        if (vec.magnitude > 0.01f)
         {
             transform.rotation = Quaternion.LookRotation(-vec);
         }
