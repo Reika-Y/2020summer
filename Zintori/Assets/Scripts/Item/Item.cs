@@ -13,15 +13,29 @@ public class Item : MonoBehaviour
     private CountDownTimer timer;
     private float limit;
 
+    public int hp = 10;
+
+    private int playerId = 0;
+    public int PlayerId
+    {
+        get => playerId;
+        set => playerId = value;
+    }
+
+
     void Start()
     {
-        slider = transform.Find("gauge/Slider").GetComponent<Slider>();
+        slider = transform.Find("timerGauge/Slider").GetComponent<Slider>();
         timer = new CountDownTimer(minute, seconds);
         limit = minute * 60 + seconds;
     }
 
     void Update()
     {
+        if(hp <= 0)
+        {
+            Destroy(gameObject, 0.5f);
+        }
         if (timer.TotalTime <= 0)
         {
             Destroy(gameObject, 0.5f);
