@@ -24,6 +24,9 @@ public class Move : MonoBehaviour
             transform.rotation = Quaternion.LookRotation(-vec);
         }
 
-        transform.position = pos;
+        if (MapControl.Instance.CheckPosition(pos))
+        {
+            transform.position = pos;
+        }
     }
 }

@@ -103,4 +103,14 @@ public class MapControl : SingletonMonoBehaviour<MapControl>
 
         Debug.Log(builder.ToString());
     }
+
+    public bool CheckPosition(Vector3 position)
+    {
+        var checkPosition = map.WorldToCell(position);
+        if(map.GetTile(checkPosition))
+        {
+            return true;
+        }
+        return false;
+    }
 }
