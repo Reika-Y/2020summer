@@ -16,7 +16,13 @@ public class MiniMap : MonoBehaviour
     [SerializeField]
     private MapData terrain;
     [SerializeField]
-    Image image;
+    private Color noneColor;
+    [SerializeField]
+    Image image = null;
+
+    // 余白
+    [SerializeField]
+    int space = 20;
 
     // マップ用テクスチャ
     Texture2D texture;
@@ -24,12 +30,12 @@ public class MiniMap : MonoBehaviour
     void Start()
     {
         // テクスチャ作成
-        Vector3Int size = terrain.map.size;
+        Vector3Int size = new Vector3Int(terrain.map.size.x + space * 2, terrain.map.size.y + space * 2, terrain.map.size.z);
         texture = new Texture2D(size.x, size.y, TextureFormat.ARGB32, false);
 
         texture.filterMode = FilterMode.Point;
 
-        Vector3Int origin = terrain.map.origin;
+        Vector3Int origin = new Vector3Int(terrain.map.origin.x - space, terrain.map.origin.y - space, terrain.map.origin.z );
 
         for(int y = 0; y < size.y; y++)
         {
@@ -40,6 +46,10 @@ public class MiniMap : MonoBehaviour
                 if (terrain.map.GetTile(cellPos))
                 {
                     texture.SetPixel(x, y, terrain.color);
+                }
+                else
+                {
+                    texture.SetPixel(x, y, noneColor);
                 }
             }
         }

@@ -2,19 +2,42 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemManager : MonoBehaviour
+public struct Items
 {
+    public GameObject item;
+    public int count;
+}
 
+public class ItemManager : SingletonMonoBehaviour<ItemManager>
+{
+    [SerializeField]
+    private const int listSize = 3;
 
-    // Start is called before the first frame update
-    void Start()
+    private Items[] itemList;
+
+    void Awake()
     {
-        
+        base.Awake();
+        itemList = new Items[listSize];
     }
 
-    // Update is called once per frame
-    void Update()
+    public void AddItem(GameObject obj, int count = 1)
     {
-        
+        for(int i = 0;i < listSize;i++)
+        {
+            if(itemList[i].item == obj)
+            {
+                itemList[i].count += count;
+                return;
+            }
+            if(!itemList[i].item)
+            {
+                itemList[i].item = obj;
+                itemList[i].count = count;
+                return;
+            }
+        }
     }
+
+
 }

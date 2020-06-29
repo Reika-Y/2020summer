@@ -33,7 +33,6 @@ public class SceneFinder : AssetPostprocessorEx
         if (ExistsDirectoryInAssets(assetsList, targetDirectoryNameList))
         {
             Create();
-            Debug.Log("s");
         }
     }
 
@@ -47,7 +46,7 @@ public class SceneFinder : AssetPostprocessorEx
         foreach (var guid in AssetDatabase.FindAssets(SEARCH_PATH))
         {
             var path = AssetDatabase.GUIDToAssetPath(guid);
-            list.Add(AssetDatabase.LoadMainAssetAtPath(path));
+            list.Add((Object)AssetDatabase.LoadMainAssetAtPath(path));
         }
 
         CreateSceneScript(FILE_NAME, EXPORT_PATH, list);

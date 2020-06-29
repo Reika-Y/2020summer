@@ -38,9 +38,7 @@ public class CountDownTimer
 
     public CountDownTimer(int min,float sec)
     {
-        minute = min;
-        seconds = sec;
-        totalTime = minute * 60 + seconds;
+        Reset(min, sec);
     }
 
     public void Update()
@@ -56,5 +54,13 @@ public class CountDownTimer
         // 設定
         minute = (int)totalTime / 60;
         seconds = totalTime - minute * 60;
+    }
+   
+
+    public void Reset(int min, float sec)
+    {
+        minute = min;
+        seconds = sec;
+        totalTime = minute * 60 + seconds;
     }
 }
