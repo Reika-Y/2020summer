@@ -16,7 +16,6 @@ namespace Boxophobic.StyledGUI
         public float down;
 
         MessageType mType;
-        bool enabled;
 
         public StyledMessageDrawer(string t, string m, float top, float down)
         {
@@ -41,6 +40,8 @@ namespace Boxophobic.StyledGUI
 
         public override void OnGUI(Rect position, MaterialProperty prop, String label, MaterialEditor materialEditor)
         {
+            bool enabled = false; ;
+
             Material material = materialEditor.target as Material;
 
             if (type == "None")

@@ -1,8 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 
-public class SingletonMonoBehaviour<T> : MonoBehaviour where T :MonoBehaviour
+public abstract class SingletonMonoBehaviour<T> : MonoBehaviour where T : MonoBehaviour
 {
     private static T instance;
 
@@ -10,31 +9,26 @@ public class SingletonMonoBehaviour<T> : MonoBehaviour where T :MonoBehaviour
     {
         get
         {
-            if (!instance)
+            if (instance == null)
             {
-                instance = (T)FindObjectOfType(typeof(T));
-                if (!instance)
+                Type t = typeof(T);
+                instance = (T)FindObjectOfType(t);
+                if (instance == null)
                 {
-                    Debug.LogError(typeof(T) + "is nothing");
+                    Debug.LogWarning(t + "is nothing.");
                 }
             }
             return instance;
         }
     }
 
-    protected void Awake()
+    virtual protected void Awake()
     {
-        CheckInstance();
-    }
-
-    protected bool CheckInstance()
-    {
-        if(this == Instance)
+        if (this != Instance)
         {
-            return true;
+            // 存在したらオブジェクトごと消し去る
+            Destroy(gameObject);
+            return;
         }
-        Destroy(this);
-        return false;
     }
-
 }

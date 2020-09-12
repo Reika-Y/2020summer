@@ -50,7 +50,7 @@ public class MapControl : SingletonMonoBehaviour<MapControl>
             if(map.GetTile(pos + offset) && teamColor.Length >= num)
             {
                 map.SetTile(pos + offset,tileBase);
-                map.SetColor(pos + offset, teamColor[num++]);
+                map.SetColor(pos + offset, teamColor[num]);
             }
         }
     }

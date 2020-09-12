@@ -8,7 +8,7 @@ public struct Items
     public int count;
 }
 
-public class ItemManager : SingletonMonoBehaviour<ItemManager>
+public class ItemSet : SingletonMonoBehaviour<ItemSet>
 {
     [SerializeField]
     private const int listSize = 3;

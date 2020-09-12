@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.UI;
 
@@ -32,7 +30,6 @@ public class MiniMap : MonoBehaviour
         // テクスチャ作成
         Vector3Int size = new Vector3Int(terrain.map.size.x + space * 2, terrain.map.size.y + space * 2, terrain.map.size.z);
         texture = new Texture2D(size.x, size.y, TextureFormat.ARGB32, false);
-
         texture.filterMode = FilterMode.Point;
 
         Vector3Int origin = new Vector3Int(terrain.map.origin.x - space, terrain.map.origin.y - space, terrain.map.origin.z );
@@ -66,6 +63,7 @@ public class MiniMap : MonoBehaviour
 
     private void OnDestroy()
     {
+        // 削除
         Destroy(texture);
     }
 }

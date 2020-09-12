@@ -3,6 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+// 状態管理用
+enum GameState
+{
+    Wait,
+    Play,
+    GameSet
+}
+
 public class GameManager : MonoBehaviour
 {
     // 制限時間表示

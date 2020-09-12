@@ -2,5 +2,7 @@
 enum EnumScene
 {
 	Game,
+	Home,
+	Select,
 	Title,
 }
