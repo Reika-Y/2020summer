@@ -1565,7 +1565,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxPlayer: 2
-  isFading: 1
+  isFading: 0
   interval: 2
   scene: 0
 --- !u!4 &1987362417
