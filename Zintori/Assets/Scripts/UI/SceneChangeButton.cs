@@ -9,6 +9,6 @@ public class SceneChangeButton : MonoBehaviour
 
     public void OnClick()
     {
-        SceneManager.LoadScene(scene.ToString());
+        Transition.Instance.LoadScene(scene.ToString(), 1f);
     }
 }

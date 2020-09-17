@@ -26,7 +26,7 @@ public class Move : MonoBehaviour
 
         // ベクトル
         var vec = pos - transform.position;
-        if (vec.magnitude > 0.01f)
+        if (vec.magnitude > 0.001f)
         {
             transform.rotation = Quaternion.LookRotation(-vec);
             // 何かしら入力がある場合
