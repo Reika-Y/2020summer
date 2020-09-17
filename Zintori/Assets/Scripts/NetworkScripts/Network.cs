@@ -74,6 +74,7 @@ public class Network : MonoBehaviourPunCallbacks
         else
         {
             // フェードなし遷移
+            PhotonNetwork.IsMessageQueueRunning = false;
             SceneManager.LoadScene(scene.ToString());
         }
     }

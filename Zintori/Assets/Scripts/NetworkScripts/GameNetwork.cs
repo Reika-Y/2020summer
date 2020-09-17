@@ -20,14 +20,7 @@ public class GameNetwork : MonoBehaviour
     void Start()
     {
         //　自身のプレイヤーを生成
-        //MyPlayerObject = PhotonNetwork.Instantiate(InstansObjectName, new Vector3(Random.Range(-20, 20), 0, Random.Range(-20, 20)), Quaternion.identity);
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            MyPlayerObject = PhotonNetwork.Instantiate(InstansObjectName, new Vector3(Random.Range(-20, 20), 0, Random.Range(-20, 20)), Quaternion.identity);
-        }
+        PhotonNetwork.IsMessageQueueRunning = true;
+        MyPlayerObject = PhotonNetwork.Instantiate(InstansObjectName, new Vector3(Random.Range(-20, 20), 0, Random.Range(-20, 20)), Quaternion.identity);
     }
 }

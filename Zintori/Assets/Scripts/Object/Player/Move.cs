@@ -15,16 +15,24 @@ public class Move : MonoBehaviour
     private void Start()
     {
         playerAnim = gameObject.GetComponent<PlayerAnim>();
-        joystick = GameObject.Find("Joystick").GetComponent<Joystick>();
     }
 
     void Update()
     {
         Vector3 pos = transform.position;
 
-        pos.x -= joystick.Position.x * speed * Time.deltaTime;
-        pos.z -= joystick.Position.y * speed * Time.deltaTime;
-
+        if (joystick != null)
+        {
+            pos.x -= joystick.Position.x * speed * Time.deltaTime;
+            pos.z -= joystick.Position.y * speed * Time.deltaTime;
+        }
+        else
+        {
+            GameObject obj = GameObject.Find("Joystick");
+            if (obj == null) return;
+            joystick = GameObject.Find("Joystick").GetComponent<Joystick>();
+        }
+        
         // ベクトル
         var vec = pos - transform.position;
         if (vec.magnitude > 0.001f)
