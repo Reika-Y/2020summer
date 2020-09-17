@@ -26,8 +26,12 @@ public class FollowingCamera : MonoBehaviour
     private void LateUpdate()
     {
         UpdateDistance(Input.GetAxis("Mouse ScrollWheel"));
-        UpdatePosition(target.transform.position + offset);
-        transform.LookAt(target.transform.position);
+        if (target != null)
+        {
+            UpdatePosition(target.transform.position + offset);
+            transform.LookAt(target.transform.position);
+        }
+        
     }
 
     // 角度の更新

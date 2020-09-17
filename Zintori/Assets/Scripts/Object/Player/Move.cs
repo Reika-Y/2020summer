@@ -31,12 +31,20 @@ public class Move : MonoBehaviour
         {
             transform.rotation = Quaternion.LookRotation(-vec);
             // 何かしら入力がある場合
-            playerAnim.ChangeAnim(ANIM_ID.RUN);
+            if (playerAnim != null)
+            {
+                playerAnim.ChangeAnim(ANIM_ID.RUN);
+            }
+            
         }
         else
         {
             // 入力なしの場合
-            playerAnim.ChangeAnim(ANIM_ID.IDLE);
+            if (playerAnim != null)
+            {
+                playerAnim.ChangeAnim(ANIM_ID.IDLE);
+            }
+            
         }
 
         if (MapControl.Instance.CheckPosition(pos))

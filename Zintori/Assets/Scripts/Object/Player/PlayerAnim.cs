@@ -39,9 +39,11 @@ public class PlayerAnim : MonoBehaviour
         switch(animId)
         {
             case ANIM_ID.IDLE:
+                if (animator == null) break;
                 animator.SetBool(moveAnim[ANIM_ID.RUN], false);
                 break;
             case ANIM_ID.RUN:
+                if (animator == null) break;
                 animator.SetBool(moveAnim[animId], true);
                 break;
         }
