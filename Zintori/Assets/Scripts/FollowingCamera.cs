@@ -18,6 +18,11 @@ public class FollowingCamera : MonoBehaviour
     [SerializeField] private float mouseYSensitivity = 5.0f;
     [SerializeField] private float scrollSensitivity = 5.0f;
 
+    private void Start()
+    {
+        target = GameObject.Find("Player(Clone)");
+    }
+
     private void LateUpdate()
     {
         UpdateDistance(Input.GetAxis("Mouse ScrollWheel"));

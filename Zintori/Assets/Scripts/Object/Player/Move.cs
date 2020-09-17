@@ -15,6 +15,7 @@ public class Move : MonoBehaviour
     private void Start()
     {
         playerAnim = gameObject.GetComponent<PlayerAnim>();
+        joystick = GameObject.Find("Joystick").GetComponent<Joystick>();
     }
 
     void Update()
