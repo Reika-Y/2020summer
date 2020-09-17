@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Photon.Pun;
+using UnityEngine;
 
 // キャラの移動処理
 public class Move : MonoBehaviour
@@ -21,8 +22,7 @@ public class Move : MonoBehaviour
     {
         Vector3 pos = transform.position;
 
-        if (joystick != null)
-        {
+        if (joystick != null && this.GetComponent<PhotonView>().IsMine) { 
             pos.x -= joystick.Position.x * speed * Time.deltaTime;
             pos.z -= joystick.Position.y * speed * Time.deltaTime;
         }

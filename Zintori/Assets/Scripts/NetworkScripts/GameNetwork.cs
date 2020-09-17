@@ -15,12 +15,16 @@ public class GameNetwork : MonoBehaviour
     [SerializeField]
     private string InstansObjectName = "Player";
     // インスタンスしたオブジェクト保持用
-    private GameObject MyPlayerObject = null;
+    private static GameObject MyPlayerObject = null;
 
     void Start()
     {
         //　自身のプレイヤーを生成
         PhotonNetwork.IsMessageQueueRunning = true;
         MyPlayerObject = PhotonNetwork.Instantiate(InstansObjectName, new Vector3(Random.Range(-20, 20), 0, Random.Range(-20, 20)), Quaternion.identity);
+    }
+
+    public static GameObject GetMyPlayerObject {
+        get { return MyPlayerObject; }
     }
 }
