@@ -20,7 +20,7 @@ public class PlayerAnim : MonoBehaviour
     // 現在のモーション
     private ANIM_ID animId;
 
-    void Start()
+    void Awake()
     {
         InitAnim();
     }

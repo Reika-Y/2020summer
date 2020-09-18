@@ -43,7 +43,10 @@ public class Move : MonoBehaviour
             {
                 playerAnim.ChangeAnim(ANIM_ID.RUN);
             }
-            
+            else
+            {
+                playerAnim = gameObject.GetComponent<PlayerAnim>();
+            }
         }
         else
         {
@@ -52,7 +55,10 @@ public class Move : MonoBehaviour
             {
                 playerAnim.ChangeAnim(ANIM_ID.IDLE);
             }
-            
+            else
+            {
+                playerAnim = gameObject.GetComponent<PlayerAnim>();
+            }
         }
 
         if (MapControl.Instance.CheckPosition(pos))

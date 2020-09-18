@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Photon.Pun;
+using UnityEngine;
 
 public class FollowingCamera : MonoBehaviour
 {
@@ -31,7 +32,13 @@ public class FollowingCamera : MonoBehaviour
             UpdatePosition(target.transform.position + offset);
             transform.LookAt(target.transform.position);
         }
-        
+        else
+        {
+            if (GameObject.Find("Player(Clone)").GetComponent<PhotonView>().IsMine)
+            {
+                target = GameObject.Find("Player(Clone)");
+            }
+        }
     }
 
     // 角度の更新

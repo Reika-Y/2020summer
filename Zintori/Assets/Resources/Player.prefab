@@ -73,7 +73,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 933f9212b09536e4984b2f8b8ad2eb85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
+  animator: {fileID: 6453120603810863354}
 --- !u!114 &2637760220425019494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -776,11 +776,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9541508, guid: 3886001691da2124688a8816d352423a, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: dc3d4f22a68c815498b26a921d827b09, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3886001691da2124688a8816d352423a, type: 3}
 --- !u!4 &6453120603803177560 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 417062, guid: 3886001691da2124688a8816d352423a,
+    type: 3}
+  m_PrefabInstance: {fileID: 6453120603803553662}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &6453120603810863354 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 9541508, guid: 3886001691da2124688a8816d352423a,
     type: 3}
   m_PrefabInstance: {fileID: 6453120603803553662}
   m_PrefabAsset: {fileID: 0}
